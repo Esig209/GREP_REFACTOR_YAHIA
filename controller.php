@@ -4,6 +4,16 @@ include_once('../../LoginOZ/cookieconnect.php');
 include_once('model.php');
 include_once 'model.php';
 
+function create_unique_id(){
+
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < 20; $i++) {
+        $randomString .= $characters[mt_rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
 
 if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
@@ -41,6 +51,9 @@ if(isset($_POST['delete_item'])){
    } 
 
 }
+
+testDeleteConfirmation(true, confirmDeleteItem()); 
+
 
 if(isset($_POST['empty_cart'])){
 

@@ -56,6 +56,7 @@ if(isset($_POST['delete_item'])){
 
 }
 
+
 if(isset($_POST['empty_cart'])){
    
    $verify_empty_cart = $bdd->prepare("SELECT * FROM `cart` WHERE user_id = ?");
